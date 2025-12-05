@@ -14,8 +14,13 @@ function App() {
         <button onClick={()=>{
           setCount(count + 1)
         }} style={{ margin: "0px 10px" }}>Increase</button>
-        <button style={{ margin: "0px 10px" }}>Decrease</button>
-        <button style={{ margin: "0px 10px" }}>Reset</button>
+        <button 
+        onClick={()=>setCount((count)=>Math.max(count - 1, 0))}
+        style={{ margin: "0px 10px" }}>Decrease</button>
+
+        <button 
+        onClick={()=> setCount(0)}
+        style={{ margin: "0px 10px" }}>Reset</button>
       </div>
       <div style={{ margin: "20px 15px" }}>
         <input
