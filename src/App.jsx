@@ -5,10 +5,11 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [countToSet, setCountToSet] = useState(0);
 
   return (
     <>
-      <h1>Counter</h1>
+      <h1>Counter  {count}</h1>
       <div>
         <p>Count is {count}</p>
         <button onClick={()=>{
@@ -31,8 +32,15 @@ function App() {
             border: "1px solid yellow",
             borderRadius: "10px",
           }}
+          value={countToSet}
+          onChange={(e)=>{setCountToSet(Number(e.target.value))}}
         />
-        <button style={{ margin: "0px 10px" }}>Set Value</button>
+        <button
+        onClick={()=>{
+          setCount(Number(countToSet));
+          setCountToSet(0);
+        }}
+         style={{ margin: "0px 10px" }}>Set Value {countToSet}</button>
       </div>
     </>
   );
